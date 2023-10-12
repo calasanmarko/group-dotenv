@@ -14,9 +14,14 @@ Inserts environment variables in multiple `.env` files based on a centrally-mana
 Usage:
   group-dotenv [-q]
   group-dotenv <config-file> [-q]
+  group-dotenv pull <file1> <file2> ... [-q] [-o output-file]
 
 Options:
   -q: Quiet mode (suppress output except for errors)
+  -o: Specify output file for the 'pull' command. Default is 'group-dotenv.yaml'.
+
+Applies the given environment variables to the .env files specified in the config file.
+By default, the script looks for 'group-dotenv.yaml' in the current directory.
 ```
 
 # Configuration
@@ -41,6 +46,16 @@ NODE_ENV=development
 ANOTHER=v1
 ```
 ...and so forth for the other `.env` files mentioned in the script.
+
+# Pull
+The pull functionality reverses the process, generating a `group-dotenv.yaml` file from the passed `.env` files.
+
+For instance, running
+```
+group-dotenv pull .env .env.staging .env.production
+```
+
+after running the example under **Configuration** will reverse the process and regenerate the sample `group-dotenv.yaml` file.
 
 # License
 Made by Marko Calasan, 2023.
