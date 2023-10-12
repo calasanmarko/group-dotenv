@@ -1,0 +1,25 @@
+{
+  "name": "group-dotenv",
+  "version": "1.0.0",
+  "description": "Centrally manage multiple .env files",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/calasanmarko/group-dotenv.git"
+  },
+  "keywords": [
+    "dotenv",
+    "env",
+    "environment",
+    "variables",
+    "environment-variables",
+    "cli",
+    "bash",
+    "shell"
+  ],
+  "author": "Marko Calasan",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/calasanmarko/group-dotenv/issues"
+  },
+  "homepage": "https://github.com/calasanmarko/group-dotenv#readme"
+}
