@@ -1,6 +1,6 @@
 {
   "name": "group-dotenv",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Centrally manage multiple .env files",
   "repository": {
     "type": "git",
