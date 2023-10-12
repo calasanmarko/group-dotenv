@@ -27,7 +27,7 @@ variables:
   values:
     "./.env": development
     "./.env.staging": staging
-    "./env.production": production
+    "./.env.production": production
 - name: ANOTHER
   values:
   - "./.env": v1
