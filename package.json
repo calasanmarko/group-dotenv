@@ -1,10 +1,13 @@
 {
   "name": "group-dotenv",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Centrally manage multiple .env files",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/calasanmarko/group-dotenv.git"
+  },
+  "bin": {
+    "group-dotenv": "./group-dotenv.sh"
   },
   "keywords": [
     "dotenv",
