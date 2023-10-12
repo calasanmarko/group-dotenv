@@ -25,13 +25,13 @@ The general format of the YAML config file is as follows:
 variables:
 - name: NODE_ENV
   values:
-    "./.env": development
+  - "./.env": development
     "./.env.staging": staging
     "./.env.production": production
 - name: ANOTHER
   values:
   - "./.env": v1
-  - "./.env.staging": v2
+    "./.env.staging": v2
     "./.env.production": v3
 ```
 
