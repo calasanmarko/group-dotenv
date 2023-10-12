@@ -54,29 +54,20 @@ process_variables() {
             current_value=$(echo "$line" | sed 's/.*: //')
 
             var_statement=$current_var=$current_value
-            old_statement=$(grep -m 1 "^$current_var=" $current_file)
 
-            if [[ $var_statement != $old_statement ]]; then
+            if [[ $1 == "CLEAR" ]]; then
+                > $current_file
+            else
                 if [[ -z $old_statement ]]; then
                     if [[ $QUIET_MODE -eq 0 ]]; then
                         echo $current_file: $var_statement
                     fi
-                    echo $'\n'$var_statement >> $current_file
-                else
-                    if [[ $QUIET_MODE -eq 0 ]]; then
-                        echo $current_file: $old_statement '->' $var_statement
-                    fi
-                    echo $ZSH_VERSION
-
-                    if sed --version 2>&1 | grep -q GNU; then
-                        sed -i "s/$current_var=.*/$var_statement/g" $current_file
-                    else
-                        sed -i '' "s/$current_var=.*/$var_statement/g" $current_file
-                    fi
+                    echo $var_statement >> $current_file
                 fi
             fi
         fi
     done < "$CONFIG_FILE"
 }
 
+process_variables "CLEAR"
 process_variables
