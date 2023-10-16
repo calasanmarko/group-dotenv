@@ -106,7 +106,11 @@ process_variables() {
             var_statement=$current_var=$current_value
 
             if [[ $1 == "CLEAR" ]]; then
-                sed -i '/^[^#]/d' "$current_file"
+                if [[ "$OSTYPE" == "darwin"* ]]; then
+                    sed -i '' '/^[^#]/d' "$current_file"
+                else
+                    sed -i '/^[^#]/d' "$current_file"
+                fi
             else
                 if [[ -z $old_statement ]]; then
                     if [[ $QUIET_MODE -eq 0 ]]; then
