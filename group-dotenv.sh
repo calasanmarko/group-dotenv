@@ -106,7 +106,7 @@ process_variables() {
             var_statement=$current_var=$current_value
 
             if [[ $1 == "CLEAR" ]]; then
-                > $current_file
+                sed -i '/^[^#]/d' "$current_file"
             else
                 if [[ -z $old_statement ]]; then
                     if [[ $QUIET_MODE -eq 0 ]]; then
