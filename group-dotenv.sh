@@ -43,7 +43,7 @@ if [[ "$1" == "pull" ]]; then
     declare -a mappings
 
     for file in "${files[@]}"; do
-        while IFS= read -r line; do
+        while IFS= read -r line || [ -n "$line" ]; do
             if [[ "$line" =~ ^[^#].*=.* ]]; then
                 var="${line%=*}"
                 val="${line#*=}"
@@ -93,7 +93,7 @@ process_variables() {
     local current_file=""
     local current_value=""
 
-    while read -r line; do
+    while read -r line || [ -n "$line" ]; do
         if [[ $line =~ ^-.*name: ]]; then
             current_var=$(echo "$line" | sed 's/^- name: //')
             state="none"
